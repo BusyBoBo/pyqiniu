@@ -3,7 +3,7 @@ from qiniu import Auth, put_file, etag
 from qiniu import BucketManager  # 构建鉴权对象
 
 
-class MyQiniuUtil(object):
+class pyqiniu(object):
     """
         处理七牛的工具类
     """
@@ -67,7 +67,6 @@ class MyQiniuUtil(object):
         """
         判断key在你空间中存在
         :param file_path:
-        :param bucket_name:
         :return: True False
         """
         key = cls.get_key(file_path)
@@ -91,13 +90,13 @@ if __name__ == '__main__':
     file_path = u"/Users/ouyang/Desktop/新增测试/净空法师/封面.jpg"
 
     # 上传, 返回key
-    key = MyQiniuUtil.upload(file_path)
+    key = pyqiniu.upload(file_path)
     print key
 
     # 获取文件key
-    key = MyQiniuUtil.get_key(file_path)
+    key = pyqiniu.get_key(file_path)
     print key
 
     # 判断文件是否存在
-    is_exist = MyQiniuUtil.check_file_exist(file_path)
+    is_exist = pyqiniu.check_file_exist(file_path)
     print is_exist
